@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import './App.css'
+import {Button} from "./Button";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+/*const App = () => {
+    const [view, setView] = useState("")
+    const Button1Foo = (name: string, age: string, currentLocation: string, interestedIn: string) => {
+        if (view) {
+            setView('')
+        } else {
+            setView(name + age + currentLocation + interestedIn)
+        }
+    }
+
+    return (
+        <div>
+            <Button name={"About Me!"}
+                    callBack={() => Button1Foo("My name is Aiym.", "I'm 29.", "Citizen of Peace :).", "Coding is my hobby.")}/>
+            {view}
+        </div>
+    );
+};*/
+
+const App = () => {
+//     const [view, setView] = useState<boolean>(false)
+//
+//     return (
+//         <div>
+//             <Button name={"About Me!"} callBack={() => setView(!view)}/>
+//             {view ? 'My name is Aiym. I\'m 29. Citizen of Peace :). Coding is my hobby.' : null}
+//         </div>
+//     );
+// };
+
+    const [view, setView] = useState(false)
+    return (
+        <div className='App'>
+            <Button name={"Click me"} callBack={() => setView(!view)}/>
+            {view && 'My name is Aiym. I\'m 29. Citizen of Peace :). Coding is my hobby.'}
+        </div>
+    );
 }
-
 export default App;
